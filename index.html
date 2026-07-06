@@ -6,25 +6,23 @@
 <title>Mapa de Sorteio — Linhas sem Repetição</title>
 <style>
   :root{
-    --bg: radial-gradient(circle at 20% 10%, #8C2E77 0%, #5B1B54 45%, #2E0E2E 100%);
-    --surface: #FFFFFF;
-    --surface-2: #FBE7F2;
-    --border: #F0C6E0;
-    --ink: #33163A;
-    --ink-muted: #8A6B8A;
-    --text: #F7E6F1;
-    --muted: #D9AEC9;
-    --accent: #E0218A;
-    --accent-ink: #FFFFFF;
+    --bg: radial-gradient(circle at 20% 10%, #262626 0%, #161616 55%, #050505 100%);
+    --surface: #232323;
+    --surface-2: #2D2D2D;
+    --border: #464646;
+    --text: #F2F2F2;
+    --muted: #A6A6A6;
+    --accent: #FFFFFF;
+    --accent-ink: #000000;
   }
 
   /* cores fixas dos círculos */
   :root{
-    --gen-pink: #F2789F;
-    --gen-gold: #F6C945;
+    --gen-a: #C7C7C7;
+    --gen-b: #757575;
     --gen-white: #FFFFFF;
     --gen-red: #E8493D;
-    --result-color: #C9A6DD;
+    --result-color: #A8A8A8;
   }
 
   *{ box-sizing: border-box; }
@@ -54,7 +52,7 @@
 
   main{
     width:100%;
-    max-width: 720px;
+    max-width: 900px;
   }
 
   header{
@@ -99,7 +97,7 @@
   }
 
   .s-readout .label{
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -132,7 +130,7 @@
     justify-content:space-between;
     width:100%;
     max-width: 420px;
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.75rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
@@ -155,7 +153,7 @@
 
   .info-line{
     text-align:center;
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.85rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     margin-top: 4px;
@@ -165,7 +163,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--ink-muted);
+    color: var(--muted);
     margin: 0 0 18px;
     text-align:center;
     font-weight: 600;
@@ -191,7 +189,7 @@
   .line .badge{
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.75rem;
-    color: var(--ink-muted);
+    color: var(--muted);
     min-width: 62px;
   }
 
@@ -202,21 +200,21 @@
   }
 
   .chip{
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display:flex;
     align-items:center;
     justify-content:center;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #000000;
   }
 
   .chip-input{
     display:block;
-    line-height: 32px;
+    line-height: 42px;
     border: none;
     outline: none;
     padding: 0;
@@ -246,7 +244,7 @@
 
   .empty-state{
     text-align:center;
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.9rem;
     padding: 12px 0;
   }
@@ -259,7 +257,7 @@
   }
 
   .history{
-    width: 480px;
+    width: 560px;
     flex-shrink: 0;
     min-height: 100vh;
     max-height: 100vh;
@@ -285,7 +283,7 @@
   }
 
   .history-empty{
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.85rem;
   }
 
@@ -303,18 +301,20 @@
   .history-entry .h-title{
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.7rem;
-    color: var(--ink-muted);
+    color: var(--muted);
   }
 
   .h-line{
     display:flex;
     flex-wrap: nowrap;
     gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 
   .history-chip{
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
     border-radius: 50%;
     display:flex;
@@ -322,18 +322,18 @@
     justify-content:center;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-weight: 700;
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     color: #000000;
   }
 
   .history-chip.blank{
     background: var(--surface);
     border: 1px dashed var(--border);
-    color: var(--ink-muted);
+    color: var(--muted);
   }
 
   .results{
-    width: 480px;
+    width: 540px;
     flex-shrink: 0;
     min-height: 100vh;
     max-height: 100vh;
@@ -358,7 +358,7 @@
   }
 
   .results-empty{
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.85rem;
   }
 
@@ -381,12 +381,12 @@
   }
 
   .r-title strong{
-    color: var(--ink);
+    color: var(--text);
     font-size: 0.8rem;
   }
 
   .r-title span{
-    color: var(--ink-muted);
+    color: var(--muted);
     font-size: 0.7rem;
   }
 
@@ -394,11 +394,13 @@
     display:flex;
     flex-wrap: nowrap;
     gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 
   .result-chip{
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
     border-radius: 50%;
     display:flex;
@@ -406,7 +408,7 @@
     justify-content:center;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-weight: 700;
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     color: #000000;
     background: var(--result-color);
   }
@@ -420,6 +422,7 @@
       max-height: none;
       border-left: none;
       border-top: 1px solid var(--border);
+      padding: 24px 16px;
     }
     .results{
       width: 100%;
@@ -428,12 +431,30 @@
       max-height: none;
       border-right: none;
       border-bottom: 1px solid var(--border);
+      padding: 24px 16px;
     }
   }
 
   @media (max-width: 480px){
+    .content{ padding: 32px 14px 48px; }
+    header{ margin-bottom: 28px; }
     .s-readout .value{ font-size: 2.4rem; }
-    section{ padding: 22px 16px; }
+    section{ padding: 20px 14px; }
+
+    .chip, .chip-input{
+      width: 36px;
+      height: 36px;
+      font-size: 0.88rem;
+    }
+    .chip-input{ line-height: 36px; }
+    .chips{ gap: 6px; }
+
+    .line{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .line .badge{ min-width: 0; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -444,7 +465,7 @@
 </head>
 <body>
 <aside class="results" id="resultsPanel">
-  <h2>Últimos Sorteios</h2>
+  <h2>Últimos Concursos</h2>
   <div class="results-list" id="resultsList">
     <div class="results-empty" id="resultsEmpty">Carregando últimos sorteios...</div>
   </div>
@@ -455,16 +476,15 @@
 
   <header>
     <h1>Mapa de Sorteio</h1>
-    <p>Defina quantos números por linha (S) e gere sorteios sem repetição<br>entre 1 e 25. Os círculos restantes de cada linha ficam em branco<br>para você completar manualmente até 15 números.</p>
+    <p>Defina quantos números a serem gerados aleatoriamente para cada jogo. Os círculos restantes de cada linha ficam em branco<br>para você completar manualmente até 15 números.</p>
   </header>
 
   <section>
     <div class="controls">
       <div class="s-readout">
-        <span class="label">S =</span>
         <span class="value" id="sValue">08</span>
       </div>
-      <input type="range" id="sSlider" min="0" max="15" step="1" value="8" aria-label="Quantidade de números por linha">
+      <input type="range" id="sSlider" min="1" max="15" step="1" value="8" aria-label="Quantidade de números por linha">
       <div class="range-scale"><span>0</span><span>15</span></div>
       <button class="btn" id="generateBtn">Gerar números</button>
       <div class="info-line" id="infoLine"></div>
@@ -475,8 +495,6 @@
     <h2>Linhas geradas</h2>
     <div class="lines" id="lines"></div>
   </section>
-
-  <footer>Cada linha usa números exclusivos; quando 25 não é múltiplo de S, a última linha recebe o restante.</footer>
 
 </main>
 </div>
@@ -490,7 +508,7 @@
 
 <script>
   const TOTAL = 25;
-  const genColors = ['var(--gen-pink)', 'var(--gen-gold)'];
+  const genColors = ['var(--gen-a)', 'var(--gen-b)'];
 
   const slider = document.getElementById('sSlider');
   const sValue = document.getElementById('sValue');
@@ -707,7 +725,7 @@
 
       const badge = document.createElement('span');
       badge.className = 'badge';
-      badge.textContent = 'Linha ' + (i + 1) + (size < s ? ' (resto)' : '');
+      badge.textContent = 'Jogo ' + (i + 1);
       lineEl.appendChild(badge);
 
       const lineColor = genColors[i % 2];
@@ -744,8 +762,6 @@
 
       linesEl.appendChild(lineEl);
     }
-
-    infoLine.textContent = 'S = ' + s + ' — ' + totalLines + ' linha(s) — ' + TOTAL + ' de ' + TOTAL + ' números utilizados';
   }
 
   slider.addEventListener('input', () => {
